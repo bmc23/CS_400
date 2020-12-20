@@ -1,0 +1,14 @@
+
+p1:
+	ls -l /usr/bin/ | grep -E "[0-9]{8}"
+
+p2: words
+	cat words | grep -i -E "[z.*q][q.*z]"
+
+words:
+	@read -p "CSL Username: " CSLUSER; \
+	scp $$CSLUSER@best-linux.cs.wisc.edu:/usr/share/dict/words .
+
+p3: 
+	curl http://wttr.in/Madison -s  
+	curl gttp://wttr.in/Madison -s | grep -i -E "[rR]ain|mM]ist"|wc --line

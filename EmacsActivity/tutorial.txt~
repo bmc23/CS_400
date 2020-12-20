@@ -1,0 +1,204 @@
+===============================================================================
+Emacs Tutorial Activity - UW Madison, CS400 (Fall 2020)
+===============================================================================
+
+This activity is divided into five sections.  Each section introduces different
+emacs commands, and prompts you to practice using them to edit this file: >>>
+
+Since many of these commands are bound to key chords, we'll use the notation:
+  C-<key> means to press the <key> key while holding down the control key
+  M-<key> means to press the <key> key while holding down the meta key
+(on Window, it is common to use Alt as the meta key)
+(on Mac, it is common to use option as the meta key)
+(another option on many systems it to press escape before pressing key)
+
+A sequence like C-x C-s means to first hold control while pressing the x-key,
+and then to hold control while pressing s key.
+
+>>> Use C-x C-s to save the contents of this file.
+(A message the the bottom of the screen should confirm writing this file)
+
+== (1/5) Cursor Navigation ====================================================
+
+You can use C-n to move your cursor down to the (n)ext line.
+You can use C-p to move your cursor up to the (p)revious line.
+You can use C-f to move your cursor right, or (f)orward one character.
+You can use C-b to move your cursor left, or (b)ackward one character.
+You can also use the arrow keys to move your cursor in these directions.
+
+>>> Move your cursor to the end of this line and type your name:
+(You can insert new characters by typing them.)
+
+You can use M-f and M-b to move cursor one word instead of one character.
+You can alsu use M-left and M-right arrows to accomplish the same thing.
+
+>>> Add the s to the end of each word on the next line (use M-f or M-right):
+>>> apple banana coconut durian elephant fig grape hamster
+(You can use backspace to delete any mistakes)
+
+You can use C-a or C-e to move your cursor to the beginning or (e)nd of a line.
+You can use M-a or M-e to move your cursor to the beginning or (e)nd of a
+sentence.  Note that the concept of word and a sentence may vary based on the
+kind of file you are editing.  In a Java source file they may instead be
+expressions and statements.
+
+>>> Change the exclamation mark at the end of each sentence below to a period
+>>> (use C-e and M-e to position your cursor)
+>>> This sentence is all on a single line!
+>>> But this sentence is really incredibly long... so long that it spans all
+>>> the way from the previous line to the end of this one!  And here is one
+>>> last sentence that wraps from one line to the next!
+
+Summary of commands:
+  Move cursor left or right one character or word: C-b, C-f, M-b, M-f
+  Move cursor to next or previous line: C-n, C-p
+  Move cursor to beginning or end of line or sentence: C-a, C-e, M-a, M-e
+
+>>> Use C-x C-s to save your progress through this first section.
+
+== (2/5) Undo, Search, Abort, and Quit ========================================
+
+You can use C-_ (where _ is an underscore) to undo your recent edits.
+(C-/ is another common option for this command)
+
+>>> Type your name at the end of this line, and then undo that edit:
+(note that the end of this line should end up blank, as it started)
+
+You can use C-s to (s)earch for a sequence of characters, and you can use C-r
+to search in the (r)evearse direction through this document.  To end this
+command, or any other in that mini buffer at the bottom of the screen, use C-g.
+
+>>> Use C-r, and then type in the word "use" without quotes.  While searching,
+>>> try using C-r and C-s to jump from one instance of the word to the next.
+>>> Then use C-g to quit searching.
+
+You are about to quit out of emacs, and then reopen this document.  After doing
+so, you can use C-s to search for "abc" to jump quickly back here.
+
+>>> Use C-x C-c to quit out of emacs, and then re-open this document up to
+>>> complete the remaining activities.  You should not have changed anything
+>>> in this section, and should not need to save before doing this.
+
+Summary of commands:
+  Undo your last edits: C-_
+  Search forwards and in reverse through document: C-s C-r
+  Abort command in mini buffer: C-g
+  Quit emacs: C-x C-c
+
+== (3/5) Mark, Kill, and Yank (aka Copy and Paste) ============================
+
+You can use C-k to (k)ill the rest of a line to the right of your cursor.
+Kill is similar to cut in other environments.  You can also use M-k to kill the
+rest of a sentence, rather than just one line.  Then you can use C-y to (y)ank
+that text back from the kill buffer into this document.  Yank is similar to
+paste in other environments.
+
+>>> Put your cursor at the beginning of this line, and kill it using C-k.
+>>> Then yank it back three times, so you are left with three copies.  Put
+>>> each copy on its own line.
+
+After using C-y to yank, you can use M-y to cycle through your kill buffer and
+change which of the items you have killed in the past is being displayed. 
+
+>>> Kill each of the English words below: One, Two, Three, leaving the #)
+>>> 1) One
+>>> 2) Two
+>>> 3) Three
+>>> After killing these lines, use C-y and M-y to yank the words back, but
+>>> put them in reverse order: 1) Three, 2) Two, 3) One on separate lines.
+
+You can select a region of text by 1) use C-Spacebar to mark one end of the
+region, 2) moving your curor to the other end of the region, and then 3) use
+C-w to kill the entire selected region.  After killing a region like this, you
+can use C-y to yank it back from the kill buffer.
+(C-@ is another common option that can be used in place of C-Spacebar)
+
+>>> Use C-Spacebar and C-w to yank the entire paragraph above.  Then use C-y 
+>>> twice to leave two copies of this paragraph in this document.
+
+Summary of commands:
+  Kill a line or sentence of text: C-k, M-k
+  Yank text from kill buffer: C-y, M-y
+  Kill a region of text: C-Spacebar and C-w
+
+>>> Use C-x C-s to save your progress through this first section.
+
+== (4/5) Repeat and Macros ====================================================
+
+You can repeat any command by preceeding it with C-u and a number.
+
+>>> Move cursor below this line and type: C-u 79 > to create a row of 79 >s
+
+You can record a sequence of commands into a macro (similar to a "method" in
+Java).  Use F3 to start recording a macro, then enter a sequence of commands,
+and finally use F4 to end that macro.  After doing this, you can use F4 to run
+that macro sequence of commands.
+
+>>> Use a macro to change the argument type in the following method signatures
+>>> from int to char.  Move your cursor to the left-most position of the line
+>>> declaring the addKey method below, then:
+>>> 1) press F3 to start recording,
+>>> 2) press C-u 4 M-f to move cursor to the right of int,
+>>> 3) press C-u 3 Backspace to delete the word int,
+>>>               (On MacOSX, use the delete key in place of Backspace)
+>>> 4) type char to replace the int that you just deleted
+>>> 5) press C-e C-f to move the cursor to the beginning of the next line,
+>>> 6) press F4 to end macro,
+>>> 7) press F4 to play macro again,
+>>> 8) press C-u 2 F4 to play macro two more times.
+
+  public void addKey(int x);
+  public int removeKey(int x);
+  public boolean containsKey(int x);
+  public int countKey(int x);
+
+Summary of commands:
+  Invoke commands multiple times: C-u
+  Begin recording macro: F3
+  End recording macro: F4
+  Re-issue commands in macro: F4
+
+>>> Use C-x C-s to save your progress through this first section.
+
+== (5/5) Windows, Buffers, and Help ===========================================
+
+You can split the window within emacs using C-x 2 to split below, or C-x 3 to
+split right.  To return your view a single window, use C-x 1.
+
+>>> Use commands C-x 2, then C-x 3, and then C-x 1 (to try different views).
+
+You can use C-x o to move your cursor to an (o)ther window.
+
+You can use C-x C-f to open a new file.  Don't worry other files will be kept
+open in their own buffers (similar to tabs in a browser) when this happens.
+
+>>> Use C-x 2 C-x o to open a new window and move your cursor into it.
+>>> Use C-x C-f and then type Seq.java<enter> to open the Seq.java there.
+>>> Use M-f M-b M-e M-a to move the cursor between expressions and statements.
+>>> Use C-x o C-x 1 to move your cursor back to this window and close others.
+
+Although you have closed the other window, the file is still open in another
+buffer (similar to having mutliple tabs open in your browser).  You can use
+C-x b to change your window to view another (b)uffer.  If you don't know the name of the buffer that you want to change to, hit TAB to see a list of options.
+
+>>> Use C-x b to change back to the Seq.java buffer, and then use it again to
+>>> change back to this one.
+
+Summary of commands:
+  close all but one window: C-x 1
+  create new window below: C-x 2
+  create new window to the right: C-x 3
+  move cursor between windows: C-x o
+  open a new file: C-x C-f
+  view a different buffer: C-x b
+
+>>> Use C-x C-s to save your progress through this first section.
+>>> Follow the submission instructions in your write up.
+
+===============================================================================
+End of Emacs Tutorial Activity
+===============================================================================
+
+
+
+

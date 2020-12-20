@@ -1,0 +1,34 @@
+all: MyList.class ListADT.class Main.class TestSuite.class junit5.jar
+
+init: MyList.class
+
+
+listADT.java:
+	wget http://pages.cs/wisc.edu/~cs400/ListADT.java
+	javac ListADT.java
+
+MyList.class: ListADT.java
+	wget http://pages.cs.wisc.edu/~cs400/MyList.class
+
+ListADT.class: ListADT.java
+	javac ListADT.java
+
+Main.class: ListADT.class MyList.class Main.java
+	javac Main.java
+
+run: Main.class ListADT.class MyList.class
+	java Main
+
+JUnit5.jar:
+	wget http://pages.cs.wisc.edu/~cs400/junit5.jar
+
+TestSuite.class: TestSuite.java MyList.class junit5.jar
+	java -cp .:junit5.jar TestSuite.java
+
+test: TestSuite.class MyList.class junit5.jar
+	java -jar junit5.jar --class-path . --scan-classpath --details tree
+
+clean:
+	$(RM) junit5.jar
+	$(RM) *.class
+	$(RM) ListADT.java

@@ -1,0 +1,4 @@
+SUBMISSION="submission$(date +%Y%m%d_%H%M%S)"
+read -p 'Your CSL username: ' USERNAME
+echo "Preparing submission for ${USERNAME}. Please type your CSL password in the prompt below."
+rsync -r * ${USERNAME}@best-linux.cs.wisc.edu:/p/course/cs400/submissions/${USERNAME}/${SUBMISSION}/

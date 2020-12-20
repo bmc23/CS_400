@@ -1,0 +1,10 @@
+NEWSUB=".sub$(date +%Y%m%d_%H%M%S)"
+echo $USER > $NEWSUB
+date >> $NEWSUB
+tree >> $NEWSUB
+echo "======" >> $NEWSUB
+curl -X POST -H "Content-Type: application/x-www-form-urlencoded" \
+    -d "entry.883830746=$USER&entry.47494899=$(tree)" \
+    https://docs.google.com/forms/d/e/1FAIpQLSeSYxTePHTuU0ufiMlcJxH60l5jna0JGbvzr51fOdHz2t9AnA/formResponse >> $NEWSUB 2> /dev/null
+echo "Directory Submitted for $USER: "
+tree

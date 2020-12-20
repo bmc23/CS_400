@@ -1,0 +1,14 @@
+  1. Move the cursor to this line.
+
+  2. Press  v  and move the cursor to include everything including the fifth item below.
+     Notice that the text is highlighted.
+
+  3. Press the  :  character.  At the bottom of the screen  :'<,'> will appear.
+
+  4. Type  w SNIPPET  , where SNIPPET is the name of the file that we will save.
+     Verify that you see  :'<,'>w SNIPPET  before you press <ENTER>.
+
+  5. Vim will write the selected lines to the file SNIPPET.  Use  :!ls
+     to see it.  Do not remove it!  We will use it in the next lesson, and you'll
+     need it for your CS400 submission.
+
